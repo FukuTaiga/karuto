@@ -11,9 +11,9 @@
 
   <!-- ② hiroマーカーでのソース -->
   <a-marker preset="hiro">
-    <a-sphere scale=".25 .25 .25" position="0 .5 0" color="#111">
-      <a-animation attribute="position" to="0 1 0" direction="alternate" dur="2000" repeat="indefinite">
-      </a-animation>
+    <a-sphere scale=".25 .25 .25" position="0 .5 0" color="#111"
+              animation__rotate = "property: rotation; dur: 2000; easing: linear; dir: normal; from:0 0 0; to: 0 360 0; loop: true;";
+              animation__2="property: position; from:0 0 0; to: 0 3 0; dur: 2000; easing: linear; loop: true";>
     </a-sphere>
   </a-marker>
 
