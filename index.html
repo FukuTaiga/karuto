@@ -12,7 +12,7 @@
   <body style="margin:0px; overflow:hidden;">
       
     <!-- A-Frame の VR空間に AR.js を紐づける（デバッグUIを非表示） -->
-    <a-scene embedded arjs="debugUIEnabled:false; patternRatio=0.50">
+    <a-scene embedded arjs="debugUIEnabled:false;">
 
       <!-- OBJ形式のCGモデルの読み込み -->
       <a-assets>
@@ -20,14 +20,14 @@
         <a-asset-item id="mtl1" src="./prot/object1/object1.mtl"></a-asset-item>   <!-- mtlファイル -->
       </a-assets>
 
-      <!-- マーカーを登録（プリセットされている「hiro」マーカー） -->
+      <!-- 
       <a-marker preset="hiro">
-        <!-- マーカーの場所に箱を置く（見やすいようにワイヤーフレーム表示） -->
         <a-box position="0 0.5 0" wireframe="true"></a-box>
-      </a-marker>
+      </a-marker> 
+    -->
 
       <!-- マーカーを登録（プリセットされている「kanji」マーカー） -->
-     <a-marker preset="kanji">
+      <a-marker preset="hiro">
         <!-- マーカーの場所に OBJ 形式の 3DCG を置く -->
         <a-obj-model
           src="#obj1"
