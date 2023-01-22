@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<head><html>
+<html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -48,34 +47,3 @@
       <a-entity camera></a-entity>
     </a-scene>
   </body>
-  <!-- ① スクリプトの読み込み -->
-  <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
-  <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>
-</head>
-<body style='margin: 0; overflow: hidden;'>
-
-<!-- シーンの追加とデバックUIを非表示 -->
-<a-scene embedded arjs="debugUIEnabled:false;">
-
-  <!-- ② hiroマーカーでのソース -->
-  <a-marker preset="hiro">
-    <a-sphere scale=".25 .25 .25" position="0 .5 0" color="#111"
-              animation__rotate = "property: rotation; dur: 2000; easing: linear; dir: normal; from:0 0 0; to: 0 360 0; loop: true;";
-              animation__2="property: position; from:0 0 0; to: 500 500 0; dur: 2000; easing: linear; loop: true";>
-    </a-sphere>
-  </a-marker>
-
-
-  <!-- ③ 作成したマーカーでのソース -->
-  <a-marker type='pattern' url='./prot/pattern-test.patt'>
-    <a-sphere scale=".25 .25 .25" position="0 .5 0" color="#f00">
-      <a-animation attribute="position" to="0 1 0" direction="alternate" dur="2000" repeat="indefinite">
-      </a-animation>
-    </a-sphere>
-  </a-marker>
-
-
-  <a-entity camera></a-entity>
-</a-scene>
-</body>
-</html>
