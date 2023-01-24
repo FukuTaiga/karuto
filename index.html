@@ -1,45 +1,62 @@
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>CG モデルを登場させる</title>
-  </head>
-<!-- A-Frame ライブラリの読み込み -->
-<script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
-<!-- AR.js ライブラリの読み込み -->
-<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js"></script>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AnimationTest</title>
+<script src="https://aframe.io/releases/1.0.2/aframe.min.js"></script>
+<script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+<script src="js/aframe-extras.js"></script>
+<script src="js/aframe-text-geometry-component.min.js"></script>
+<script src="./js/aframe-ar.js"></script>
+<script src="./js/jquery-3.2.1.min.js"></script>
 
-  <body style="margin:0px; overflow:hidden;">
-      
-    <!-- A-Frame の VR空間に AR.js を紐づける（デバッグUIを非表示） -->
-    <a-scene embedded arjs="debugUIEnabled:false;">
+</head>
+<body style="margin:0px; overflow:hidden;">
+<a-scene embedded arjs="debugUIEnabled:false;"  renderer="gammaOutput: true;" vr-mode-ui="enabled: false">
 
-      <!-- OBJ形式のCGモデルの読み込み -->
-      <a-assets>
-        <a-asset-item id="obj1" src="./prot/object1/object1.obj"></a-asset-item>   <!-- objファイル -->
-        <a-asset-item id="mtl1" src="./prot/object1/object1.mtl"></a-asset-item>   <!-- mtlファイル -->
-      </a-assets>
+    <a-assets>
+        <a-asset-item id="model" src="https://cdn.glitch.com/e982bdcd-1785-4dcf-bd6b-20276b594293%2Fscene1.glb?v=1594279817621"></a-asset-item>
+        <a-asset-item id="model2" src="https://cdn.glitch.com/e982bdcd-1785-4dcf-bd6b-20276b594293%2Fen.glb?v=1602566579902"></a-asset-item> 
+    </a-assets>
 
-      <!-- 
-      <a-marker preset="hiro">
-        <a-box position="0 0.5 0" wireframe="true"></a-box>
-      </a-marker> 
-    -->
+    <a-marker preset="hiro">
+        <!-- id、visible 要素を追加 -->
+        <a-entity id="armodel" visible="false" gltf-model="#model" scale="0.0001 0.0001 0.0001" rotation="0 0 0" position="0 0.5 0" animation-mixer="clip:*" ></a-entity>
+    </a-marker>
 
-      <!-- マーカーを登録（プリセットされている「kanji」マーカー） -->
-      <a-marker preset="hiro">
-        <!-- マーカーの場所に OBJ 形式の 3DCG を置く -->
-        <a-obj-model
-          src="#obj1"
-          mtl="#mtl1"
-          scale="1 1 1"
-          position="0 0.5 0"
-          rotation="0 0 0">
-        </a-obj-model>
-      </a-marker>
+    <a-entity camera></a-entity>
+</a-scene>
 
-      <!-- AR用のカメラを置く -->
-      <a-entity camera></a-entity>
-    </a-scene>
-  </body>
+<div style="position: fixed; bottom: 150px;">
+    <!-- onclickの指定が誤っているので書き直し -->
+    <!-- <input type="button" id="b1" value="change" onclick="click1"> -->
+    <input type="button" id="b1" value="change" onclick="click1();">
+</div>
+
+<script>
+    // 不要と思われたのでコメントアウト。初期表示状態は、「a-entity」の要素で指定する様に変更済み
+    // //初期表示は非表示
+    // document.getElementById("model2").style.visibility ="hidden";
+
+    function click1(){
+
+        console.log("click1");
+
+        // Entityを取得
+        var el = document.querySelector('#armodel');
+        console.log(el.getAttribute('visible'));
+        
+        // 表示中の場合
+        if (el.getAttribute('visible')) {
+            // 非表示に切り替え
+            el.setAttribute('visible', false);
+        } else {
+            // 表示に切り替え
+            el.setAttribute('visible', true);
+        }
+    }
+</script>
+
+</body>
 </html>
