@@ -31,7 +31,7 @@
           rotation="0 0 90">
         </a-obj-model>
 	
-        <a-entity id="armodel" visible="false"></a-entity>
+        <a-entity id="armodel"></a-entity>
     </a-marker>
 
     <a-entity camera></a-entity>
@@ -46,7 +46,7 @@
 <script>
     // 不要と思われたのでコメントアウト。初期表示状態は、「a-entity」の要素で指定する様に変更済み
     // //初期表示は非表示
-    // document.getElementById("model2").style.visibility ="hidden";
+    document.getElementById("armodel").style.visibility ='visible';
 
     function click1(){
 
