@@ -15,23 +15,13 @@
 <body style="margin:0px; overflow:hidden;">
 <a-scene embedded arjs="debugUIEnabled:false;"  renderer="gammaOutput: true;" vr-mode-ui="enabled: false">
 
-   	<a-assets>
-		<a-asset-item id="model" src="./prot/object1/senser.obj"></a-asset-item>
-                <a-asset-item id="model2" src="./prot/object1/senser.mtl"></a-asset-item> 
-	</a-assets>
+    <a-assets>
+        <a-asset-item id="model" src="./prot/object1/prot.gltf"></a-asset-item>
+    </a-assets>
 
     <a-marker preset="hiro">
         <!-- id、visible 要素を追加 -->
-	
-	<a-obj-model
-          src="#model"
-          mtl="#model2"
-          scale="1 1 1"
-          position="0 0.5 0"
-          rotation="0 0 90">
-        </a-obj-model>
-	
-        <a-entity id="armodel"></a-entity>
+        <a-entity id="armodel" visible="false" gltf-model="#model" scale="1 1 1" rotation="0 0 0" position="0 0.5 0" animation-mixer="clip:*" ></a-entity>
     </a-marker>
 
     <a-entity camera></a-entity>
@@ -44,9 +34,6 @@
 </div>
 
 <script>
-    // 不要と思われたのでコメントアウト。初期表示状態は、「a-entity」の要素で指定する様に変更済み
-    // //初期表示は非表示
-    document.getElementById("armodel").style.visibility ='visible';
 
     function click1(){
 
