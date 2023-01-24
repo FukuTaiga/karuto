@@ -15,10 +15,11 @@
 <body style="margin:0px; overflow:hidden;">
 <a-scene embedded arjs="debugUIEnabled:false;"  renderer="gammaOutput: true;" vr-mode-ui="enabled: false">
 
-    <a-assets>
-        <a-asset-item id="model" src="https://cdn.glitch.com/e982bdcd-1785-4dcf-bd6b-20276b594293%2Fscene1.glb?v=1594279817621"></a-asset-item>
-        <a-asset-item id="model2" src="https://cdn.glitch.com/e982bdcd-1785-4dcf-bd6b-20276b594293%2Fen.glb?v=1602566579902"></a-asset-item> 
-    </a-assets>
+   	<a-assets>
+		<img id="grid" src="images/border.png" />
+		<a-asset-item id="model" src="./prot/object1/prot.gltf"></a-asset-item>
+        <a-asset-item id="model2" src="./prot/object1/prot2.gltf""></a-asset-item> 
+	</a-assets>
 
     <a-marker preset="hiro">
         <!-- id、visible 要素を追加 -->
