@@ -16,14 +16,22 @@
 <a-scene embedded arjs="debugUIEnabled:false;"  renderer="gammaOutput: true;" vr-mode-ui="enabled: false">
 
    	<a-assets>
-		<img id="grid" src="images/border.png" />
-		<a-asset-item id="model" src="./prot/object1/prot.gltf"></a-asset-item>
-        <a-asset-item id="model2" src="./prot/object1/prot2.gltf""></a-asset-item> 
+		<a-asset-item id="model" src="./prot/object1/senser.obj"></a-asset-item>
+                <a-asset-item id="model2" src="./prot/object1/senser.mtl"></a-asset-item> 
 	</a-assets>
 
     <a-marker preset="hiro">
         <!-- id、visible 要素を追加 -->
-        <a-entity id="armodel" visible="false" gltf-model="#model" scale="0.0001 0.0001 0.0001" rotation="0 0 0" position="0 0.5 0" animation-mixer="clip:*" ></a-entity>
+	
+	<a-obj-model
+          src="#model"
+          mtl="#model1"
+          scale="1 1 1"
+          position="0 0.5 0"
+          rotation="0 0 90">
+        </a-obj-model>
+	
+        <a-entity id="armodel" visible="false"></a-entity>
     </a-marker>
 
     <a-entity camera></a-entity>
